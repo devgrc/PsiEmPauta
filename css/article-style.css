@@ -1,0 +1,281 @@
+/* article-style.css - Estilos para a página de artigo */
+
+.article-page .container {
+    max-width: 800px;
+    /* Limita a largura do conteúdo para melhor legibilidade */
+    margin: 40px auto;
+    /* Centraliza e adiciona espaço */
+    background-color: #fff;
+    padding: 30px 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+}
+
+.article-content .article-header {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.article-content .article-header h1 {
+    font-size: 2.5rem;
+    /* Tamanho maior para o título do post */
+    color: #1a237e;
+    /* Tom de azul forte, como no hero */
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.article-content .article-meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.article-content .featured-image {
+    width: 100%;
+    max-height: 600px;
+    /* Limita a altura da imagem de destaque */
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.article-body {
+    font-size: 1.1rem;
+    /* Tamanho de fonte confortável para leitura */
+    line-height: 1.7;
+    color: #333;
+}
+
+.article-body h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+    /* Destaque sutil para subtítulos */
+    padding-bottom: 5px;
+}
+
+.article-body h3 {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.article-body p {
+    margin-bottom: 20px;
+}
+
+.article-body ul,
+.article-body ol {
+    margin-bottom: 20px;
+    padding-left: 30px;
+    /* Adiciona indentação à lista */
+}
+
+.article-body ul li,
+.article-body ol li {
+    margin-bottom: 10px;
+}
+
+.article-body strong {
+    color: #166fc1;
+    /* Cor de destaque para negrito */
+}
+
+.article-body a {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.article-body a:hover {
+    color: #2980b9;
+}
+
+.article-body em {
+    font-style: italic;
+    color: #555;
+}
+
+/* Seção de Comentários (Estilo Básico) */
+.comments-section {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.comments-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.comment-form div {
+    margin-bottom: 15px;
+}
+
+.comment-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.comment-form textarea {
+    resize: vertical;
+    /* Permite redimensionamento vertical */
+}
+
+.comment-form button {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-form button:hover {
+    background-color: #2980b9;
+}
+
+.posted-comments {
+    margin-top: 30px;
+}
+
+.posted-comments h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Ajustes para o header e footer dentro do contexto da página de artigo,
+   se necessário, mas o ideal é que `style.css` cuide da maior parte.
+   Por exemplo, garantir que o container do header/footer se alinhe
+   corretamente mesmo que o container do artigo seja mais estreito.
+   Normalmente, se o `.container` global já tem max-width, isso é gerenciado.
+*/
+
+.flashcard-container {
+    width: 600px;
+    height: 200px;
+    perspective: 1000px;
+    /* Efeito de profundidade para a animação 3D */
+    margin-bottom: 50px;
+    /* Espaço entre os flashcards */
+    margin: 0 auto 50px;
+}
+
+.flashcard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    /* Mantém os elementos filhos no espaço 3D */
+    transition: transform 0.8s;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* Esconde o lado de trás do elemento quando não está virado para o usuário */
+    display: flex;
+    flex-direction: column;
+    /* Para alinhar texto e imagem no verso */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.flashcard-front {
+    background-color: #1a237e;
+    color: white;
+}
+
+.flashcard-front h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.flashcard-front h2 {
+    color: white;
+}
+
+.flashcard-back {
+    background-color: #f9f9f9;
+    color: #333;
+    transform: rotateY(180deg);
+    /* O verso começa virado */
+}
+
+.flashcard-back p {
+    margin-top: 0;
+    /* Remove margem superior do parágrafo se houver */
+    margin-bottom: 15px;
+    /* Espaço entre o texto e a imagem */
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.flashcard-back img {
+    max-width: 80%;
+    /* Garante que a imagem não ultrapasse a largura do card */
+    max-height: 100px;
+    /* Limita a altura da imagem, ajuste conforme necessário */
+    border-radius: 5px;
+    object-fit: contain;
+    /* Garante que a imagem inteira seja visível, mantendo a proporção */
+}
+
+/* Estado Virado */
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+.video-rotated {
+    transform-origin: center;
+}
+
+.video-container {
+    width: 640px;
+    /* Largura desejada */
+    margin: 0 auto;
+    /* Centraliza */
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    /* Se quiser cantos arredondados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* Sombra leve */
+}

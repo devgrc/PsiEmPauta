@@ -1,0 +1,838 @@
+/* Reset Básico e Configurações Globais (como antes) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    /* Você pode já ter isso ou ajustar */
+    margin: 0 auto;
+    /* padding: 20px 0;  Removido daqui se o header/footer gerenciam seu padding interno */
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    /* ANIMAÇÃO: Transição suave de cor para todos os links */
+}
+
+a:hover {
+    text-decoration: none;
+    /* Mantém sem sublinhado no hover para consistência */
+    /* A cor no hover será definida especificamente para cada link se necessário */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Cabeçalho e Navegação */
+.site-header {
+    background-color: #fff;
+    padding: 1rem 0;
+    /* Padding vertical do header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    /* max-width e margin: 0 auto; para o container principal da página já devem estar configurados */
+    /* Se o .container do header precisa de padding horizontal específico: */
+    padding-left: 15px;
+    /* Exemplo */
+    padding-right: 15px;
+    /* Exemplo */
+}
+
+.site-header .logo img {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    display: block;
+    /* ANIMAÇÃO: Adicionar uma leve interação ao logo também, se desejado */
+    transition: transform 0.3s ease-out;
+}
+
+.site-header .logo img:hover {
+    transform: scale(1.05);
+    /* Leve aumento no logo */
+}
+
+.main-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: 20px;
+    /* Espaço entre o logo e os links do menu central */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav ul li {
+    margin: 0 15px;
+}
+
+.main-nav ul li a {
+    font-weight: bold;
+    color: #555;
+    padding: 5px 0;
+    position: relative;
+    display: inline-block;
+    /* Necessário para transform funcionar corretamente */
+    transition: color 0.3s ease, transform 0.2s ease-out;
+    /* ANIMAÇÃO: Adicionada transição para transform */
+}
+
+.main-nav ul li a:hover {
+    color: #3498db;
+    transform: translateY(-3px);
+    /* ANIMAÇÃO: Pula para cima */
+}
+
+/* Botão Contato no Header */
+.main-nav a.main-nav-contact-link {
+    /* Ou: .main-nav > a[href="#contato"] */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    /* transform: translateY(-50%); // Será combinado abaixo */
+    background-color: #166fc4;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* ANIMAÇÃO: Ajustada para incluir o pulo no hover */
+    transform: translateY(-50%);
+    /* Mantém centralização vertical inicial */
+    transition: background-color 0.3s ease, transform 0.2s ease-out, box-shadow 0.3s ease;
+}
+
+.main-nav a.main-nav-contact-link:hover {
+    background-color: #021e41;
+    color: #fff;
+    /* ANIMAÇÃO: Combina o pulo com a centralização e o scale */
+    transform: translateY(calc(-50% - 4px)) scale(1.05);
+    /* Pula 4px para cima + mantém centralização + aumenta */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.main-nav a.main-nav-contact-link:active {
+    /* ANIMAÇÃO: Ajusta o transform no active também */
+    transform: translateY(calc(-50% - 2px)) scale(0.98);
+    /* Levemente para baixo ao clicar */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Seção Hero (como antes, já tinha transição no botão) */
+.hero-section {
+    background-color: #e0f7fa;
+    color: #333;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-section .container {
+    padding: 0;
+}
+
+/* Reset padding do container geral se necessário */
+
+
+.hero-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #1a237e;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #166fc4;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* ANIMAÇÃO: Adicionada transição de transform */
+}
+
+.cta-button:hover {
+    background-color: #021e41;
+    text-decoration: none;
+    transform: scale(1.05);
+    /* ANIMAÇÃO: Leve aumento no hover */
+}
+
+/*ANIMACAO DE DIGITACAO*/
+.hero-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #1a237e;
+    /* Prepara para a animação de digitação */
+    /* Você pode querer uma altura mínima para evitar "pulos" durante a digitação inicial */
+    min-height: calc(2.8rem * 1.2);
+    /* Ex: font-size * line-height aproximado */
+    /* ou min-height: 2.8rem; se for uma única linha e não envolver quebras */
+    display: inline-block;
+    /* Para que o cursor fique ao lado do texto */
+}
+
+/* Span que conterá o texto digitado e o cursor */
+.hero-section h2 .typed-text-wrapper {
+    display: inline;
+    /* Para que o texto flua normalmente */
+    position: relative;
+    /* Para o cursor, se fosse um cursor de bloco */
+}
+
+/* Cursor de digitação usando um caractere de pipe "|" */
+.hero-section h2 .typed-text-wrapper::after {
+    content: '|';
+    /* Caractere usado como cursor */
+    display: inline-block;
+    margin-left: 5px;
+    /* Espaço entre o texto e o cursor */
+    color: #1a237e;
+    /* Cor do cursor (mesma do texto) */
+    animation: blink-cursor 0.8s infinite;
+    font-weight: bold;
+    /* Para o cursor ser mais visível */
+}
+
+/* Animação de piscar para o cursor */
+@keyframes blink-cursor {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Opcional: Esconder o cursor quando a digitação terminar */
+.hero-section h2 .typed-text-wrapper.typing-done::after {
+    display: none;
+    /* Ou opacity: 0; transition: opacity 0.5s; */
+}
+
+/* Seções Genéricas (como antes) */
+
+.featured-posts-section {
+    background-color: #e0f7fa;
+}
+
+.about-section,
+.featured-posts-section,
+.categories-section,
+.resources-section,
+.newsletter-section {
+    padding: 60px 0;
+    /* Padding vertical das seções */
+    text-align: center;
+}
+
+/* Garante que o container dentro das seções use o padding padrão ou não tenha se o conteúdo for full-width */
+.about-section .container,
+.featured-posts-section .container,
+.categories-section .container,
+.resources-section .container,
+.newsletter-section .container {
+    padding-left: 15px;
+    /* Exemplo de padding horizontal para o conteúdo das seções */
+    padding-right: 15px;
+}
+
+
+.about-section h3,
+.featured-posts-section h3,
+.categories-section h3,
+.resources-section h3,
+.newsletter-section h3 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #1a237e;
+}
+
+/* Destaques / Posts (como antes, já tinha transição nos cards) */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.post-card {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* ANIMAÇÃO: Já existente */
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-card h4 {
+    font-size: 1.3rem;
+    margin: 15px;
+    color: #333;
+}
+
+.post-card p {
+    font-size: 0.95rem;
+    margin: 0 15px 15px 15px;
+    color: #666;
+}
+
+.post-card .read-more {
+    display: inline-block;
+    margin: 0 15px 20px 15px;
+    color: #166fc1;
+    font-weight: bold;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+    /* ANIMAÇÃO: Adicionada transição */
+}
+
+.post-card .read-more:hover {
+    color: #2980b9;
+    letter-spacing: 0.5px;
+    /* ANIMAÇÃO: Leve espaçamento no hover */
+}
+
+/* Seção Categorias (como antes, já tinha transição nos cards) */
+.categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.category-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 20px 30px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 150px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    /* ANIMAÇÃO: Adicionada transição de transform */
+}
+
+.category-card:hover {
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-3px) scale(1.03);
+    /* ANIMAÇÃO: Leve elevação e aumento */
+}
+
+.category-card span {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* SEÇAO RECURSOS */
+
+/* Seção de Recursos */
+.resources-section {
+    padding: 60px 0;
+    background-color: #e0f7fa;
+    /* Fundo mais neutro e suave */
+    text-align: center;
+}
+
+.resources-section .section-subtitle {
+    /* Estilo para o novo subtítulo */
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.accordion-container {
+    /* Wrapper para os itens do acordeão */
+    max-width: 800px;
+    /* Ou a largura que se encaixar melhor */
+    margin: 0 auto;
+    text-align: left;
+}
+
+.accordion-item {
+    background-color: #fff;
+    /* Fundo branco para cada item */
+    margin-bottom: 15px;
+    /* Espaço entre os itens do acordeão */
+    border: 1px solid #e0e0e0;
+    /* Borda sutil para definição */
+    border-radius: 6px;
+    /* Cantos arredondados para um visual moderno */
+    overflow: hidden;
+    /* Para conter os cantos arredondados do botão/conteúdo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Sombra muito leve para profundidade */
+}
+
+.accordion-btn {
+    background-color: #fff;
+    /* Fundo do botão limpo */
+    color: #333;
+    /* Cor do texto do botão */
+    cursor: pointer;
+    padding: 18px 25px;
+    /* Padding mais generoso */
+    width: 100%;
+    border: none;
+    /* Remove a borda padrão do botão */
+    /* border-bottom: 1px solid #e0e0e0; // Adiciona uma linha sutil se o item não tiver borda */
+    text-align: left;
+    font-size: 1.1rem;
+    /* Tamanho da fonte um pouco maior */
+    font-weight: 600;
+    /* Semi-negrito para clareza */
+    transition: background-color 0.2s ease;
+    display: flex;
+    /* Para alinhar texto e ícone */
+    justify-content: space-between;
+    /* Ícone à direita */
+    align-items: center;
+}
+
+.accordion-btn:hover {
+    background-color: #f7f7f7;
+    /* Hover muito sutil */
+}
+
+/* Ícone para o botão do acordeão (usando pseudo-elemento) */
+.accordion-btn::after {
+    content: '+';
+    /* Símbolo de mais para indicar "abrir" */
+    font-size: 1.4rem;
+    font-weight: 300;
+    /* Mais leve para o símbolo */
+    color: #3498db;
+    /* Cor do ícone */
+    transition: transform 0.3s ease-out;
+}
+
+.accordion-btn.active::after {
+    content: '−';
+    /* Símbolo de menos para indicar "fechar" */
+    /* transform: rotate(45deg); // Se usasse '+' para virar um 'x' */
+}
+
+.accordion-content {
+    background-color: #fff;
+    padding: 0 25px;
+    /* Mantém o padding horizontal */
+    max-height: 0;
+    overflow: hidden;
+    /* APENAS max-height na transição principal */
+    transition: max-height 0.35s ease-out;
+    border-top: 1px solid #e9e9e9;
+}
+
+.accordion-content.open {
+    /* Classe adicionada por JS para o estado aberto */
+    padding-top: 20px;
+    /* Padding vertical aplicado quando aberto */
+    padding-bottom: 20px;
+    /* Padding vertical aplicado quando aberto */
+    /* max-height será definido por JS para animar corretamente */
+}
+
+.accordion-content ul {
+    list-style: none;
+    /* Remove marcadores padrão */
+    padding-left: 0;
+    /* Remove padding padrão */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.accordion-content ul li {
+    padding: 10px 0;
+    /* Espaçamento vertical para cada item da lista */
+    border-bottom: 1px dotted #eee;
+    /* Separador pontilhado sutil */
+}
+
+.accordion-content ul li:last-child {
+    border-bottom: none;
+    /* Remove a borda do último item */
+}
+
+.accordion-content ul li a {
+    color: #3498db;
+    /* Cor do link consistente com o site */
+    text-decoration: none;
+    font-weight: 500;
+    /* Peso da fonte para os links */
+    display: block;
+    /* Faz toda a área do <li> ser clicável se desejado (ajustar padding) */
+    transition: color 0.2s ease, padding-left 0.2s ease-out;
+}
+
+.accordion-content ul li a:hover {
+    color: #2980b9;
+    /* Cor do link no hover */
+    padding-left: 8px;
+    /* Leve deslocamento no hover para feedback */
+    text-decoration: none;
+    /* Mantém sem sublinhado ou adiciona, conforme preferência */
+}
+
+/* Remove estilos legados da .resources-section ul se não forem mais necessários globalmente para essa seção */
+/* As seguintes regras são agora tratadas dentro do .accordion-content ul */
+/*
+.resources-section ul { ... }
+.resources-section ul li { ... }
+.resources-section ul li:hover { ... }
+.resources-section ul li a { ... }
+*/
+
+/* Seção Formulário de Contato */
+/* Seção Formulário de Contato */
+.contact-form-section {
+    padding: 80px 0;
+    /* Aumentar um pouco o padding vertical da seção */
+    background-color: #f9f9f9;
+    /* Alinhar com outros fundos de seção para consistência, ou #fff se o body for #f9f9f9 */
+    text-align: center;
+}
+
+.contact-form-section h3 {
+    font-size: 2.2rem;
+    /* Um pouco maior para destaque */
+    color: #1a237e;
+    /* Cor escura principal para títulos */
+    margin-bottom: 15px;
+}
+
+.contact-form-section p {
+    /* Parágrafo introdutório */
+    font-size: 1.1rem;
+    color: #555;
+    /* Cinza escuro para texto de apoio */
+    margin-bottom: 50px;
+    /* Mais espaço antes do formulário */
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    /* Melhorar legibilidade */
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #e0f7fa;
+    ;
+    /* Fundo branco para o card do formulário */
+    padding: 40px 50px;
+    /* Padding interno mais generoso */
+    border-radius: 8px;
+    /* Cantos arredondados consistentes */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
+    /* Sombra mais suave e profissional */
+    border: 1px solid #e9e9e9;
+    /* Borda muito sutil para definição adicional */
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    /* Mais espaço entre os campos */
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    /* Peso médio para um visual mais leve que bold */
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    /* Um pouco menor para um look mais refinado */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    /* Padding interno dos campos aumentado */
+    border: 1px solid #ddd;
+    /* Borda mais clara */
+    border-radius: 6px;
+    /* Cantos arredondados consistentes */
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+    /* Fundo branco para os campos */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #166fc4;
+    /* Cor de destaque da borda no foco (azul do seu botão) */
+    /* Sombra de foco estilo "anel" mais moderna */
+    box-shadow: 0 0 0 3px rgba(22, 111, 196, 0.15);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+    /* Altura mínima um pouco maior */
+}
+
+.submit-button {
+    display: inline-block;
+    /* Cor primária do seu site, consistente com o botão "Contato" do header e outros CTAs */
+    background-color: #166fc4;
+    color: #fff;
+    padding: 14px 35px;
+    /* Padding do botão */
+    font-size: 1.05rem;
+    /* Tamanho da fonte do botão */
+    font-weight: 600;
+    /* Semi-bold */
+    border: none;
+    border-radius: 6px;
+    /* Consistente com outros elementos */
+    cursor: pointer;
+    text-align: center;
+    width: auto;
+    /* Ou width: 100%; para ocupar toda a largura */
+    transition: background-color 0.25s ease, transform 0.2s ease-out, box-shadow 0.25s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil no botão */
+}
+
+.submit-button:hover {
+    /* Tom mais escuro da cor primária para o hover */
+    background-color: #0f5699;
+    /* Ou #021e41 se preferir o contraste maior que você usou antes */
+    transform: translateY(-3px) scale(1.02);
+    /* Efeito de "pular" e leve aumento */
+    box-shadow: 0 4px 8px rgba(22, 111, 196, 0.2);
+    /* Sombra mais pronunciada no hover */
+}
+
+.submit-button:active {
+    transform: translateY(-1px) scale(0.99);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes responsivos para o formulário */
+@media (max-width: 768px) {
+    .contact-form-section {
+        padding: 60px 15px;
+        /* Ajustar padding da seção em telas menores */
+    }
+
+    .contact-form {
+        padding: 30px 25px;
+        /* Padding do formulário em telas menores */
+    }
+
+    .contact-form-section h3 {
+        font-size: 1.8rem;
+    }
+
+    .contact-form-section p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        padding: 12px 15px;
+        /* Menor padding nos campos em telas pequenas */
+    }
+}
+
+/* Rodapé */
+.site-footer-bottom {
+    background-color: #2c3e50;
+    color: #bdc3c7;
+    padding: 40px 0 20px 0;
+    font-size: 0.9rem;
+}
+
+.site-footer-bottom .container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-col h4 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.footer-col ul li a {
+    color: #bdc3c7;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    /* ANIMAÇÃO: Adicionada transição de padding */
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+    padding-left: 5px;
+    /* ANIMAÇÃO: Leve deslocamento no hover */
+}
+
+.social-icons a {
+    margin-right: 10px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    /* ANIMAÇÃO */
+}
+
+.social-icons a:hover {
+    transform: scale(1.15);
+    /* ANIMAÇÃO: Aumenta o ícone no hover */
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #95a5a6;
+}
+
+/* Media Queries para Responsividade (como antes, ou mais elaboradas) */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 10px;
+        /* Ajuste para telas menores */
+        padding-right: 10px;
+    }
+
+    .main-nav {
+        margin-top: 15px;
+        margin-left: 0;
+        /* Remove margem quando empilhado */
+        width: 100%;
+        /* Ocupa toda a largura */
+        padding-bottom: 10px;
+        /* Espaço para o botão Contato não sobrepor se o header for pequeno */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        /* Empilha os links do menu */
+        align-items: center;
+        width: 100%;
+        /* Para que os itens de lista possam ser centralizados */
+    }
+
+    .main-nav ul li {
+        margin: 8px 0;
+        /* Espaçamento vertical */
+    }
+
+    /* Ajuste para o botão Contato em telas menores */
+    .main-nav a.main-nav-contact-link {
+        position: static;
+        /* Remove posicionamento absoluto */
+        transform: none;
+        /* Remove transform */
+        display: inline-block;
+        /* Para permitir margem auto se necessário ou padding */
+        margin-top: 15px;
+        /* Espaço acima do botão */
+        width: auto;
+        /* Ajusta à largura do conteúdo */
+        /* Se quiser centralizar o botão também:
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        max-width: 200px; /* Para não ficar muito largo */
+    }
+
+    .hero-section h2 {
+        font-size: 2rem;
+    }
+
+    /* Outros ajustes responsivos que você já tinha... */
+}

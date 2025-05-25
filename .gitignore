@@ -1,0 +1,12 @@
+# Arquivos do Sistema Operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Pasta do VS Code (opcional)
+# .vscode/
+
+# Ignorar vídeos grandes que não estão no LFS
+video/*.mov
+# OU especificamente:
+# video/entrevista-julia.mov
